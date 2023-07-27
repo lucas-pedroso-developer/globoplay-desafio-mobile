@@ -22,6 +22,18 @@ class LaunchCoordinator: Coordinator {
         self.launchScreenViewController = launchScreenViewController
         window.rootViewController = launchScreenViewController
         window.makeKeyAndVisible()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.showHomeViewController()
+        }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func showHomeViewController() {
+        let homeViewController = HomeViewController()
+        let homeCoordinator = HomeCoordinator(window: window, rootViewController: homeViewController)
+        homeCoordinator.start()
+        launchScreenViewController = nil
     }
 }
 
