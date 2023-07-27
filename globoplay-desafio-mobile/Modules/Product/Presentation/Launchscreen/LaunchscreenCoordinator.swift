@@ -7,29 +7,22 @@
 
 import UIKit
 
-enum LaunchConstants: String {
-    case title = "appTitle"
-}
-
-class LaunchScreenViewController: UIViewController {
+class LaunchCoordinator: Coordinator {
+    private let window: UIWindow
+    private var launchScreenViewController: LaunchScreenViewController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.systemBackground
-        
-        // MARK: - UI Setup
-        
-        let label = UILabel()
-        label.text = NSLocalizedString(LaunchConstants.title.rawValue, comment: String())
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-        
-        // MARK: - Constraints
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+    init(window: UIWindow) {
+        self.window = window
+    }
+    
+    // MARK: - Coordinator
+    
+    func start() {
+        let launchScreenViewController = LaunchScreenViewController()
+        self.launchScreenViewController = launchScreenViewController
+        window.rootViewController = launchScreenViewController
+        window.makeKeyAndVisible()
     }
 }
+
+
