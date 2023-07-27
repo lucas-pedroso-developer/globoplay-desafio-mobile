@@ -23,18 +23,47 @@ class LaunchCoordinator: Coordinator {
         window.rootViewController = launchScreenViewController
         window.makeKeyAndVisible()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.showHomeViewController()
+            self.showHomeTabBarController()
         }
     }
     
     // MARK: - Private Methods
-    
-    private func showHomeViewController() {
+
+    private func showHomeTabBarController() {
         let homeViewController = HomeViewController()
-        let homeCoordinator = HomeCoordinator(window: window, rootViewController: homeViewController)
-        homeCoordinator.start()
+        homeViewController.title = "Início"
+
+        let myListViewController = MyListViewController()
+        myListViewController.title = "Minha Lista"
+
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [homeViewController, myListViewController]
+
+        tabBarController.tabBar.barTintColor = .black
+        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.7)
+
+        if let items = tabBarController.tabBar.items {
+            for (index, item) in items.enumerated() {
+                switch index {
+                case 0:
+                    item.image = UIImage(named: "home")?.withRenderingMode(.alwaysTemplate) // Alterado para .alwaysTemplate
+                case 1:
+                    item.image = UIImage(named: "star")?.withRenderingMode(.alwaysTemplate) // Alterado para .alwaysTemplate
+                default:
+                    break
+                }
+                
+                item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+                item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+            }
+        }
+
+        window.rootViewController = tabBarController
         launchScreenViewController = nil
     }
+
+
 }
 
 
