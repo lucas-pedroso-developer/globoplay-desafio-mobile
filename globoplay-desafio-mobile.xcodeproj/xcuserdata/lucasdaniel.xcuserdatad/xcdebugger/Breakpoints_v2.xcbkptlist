@@ -366,8 +366,8 @@
             filePath = "globoplay-desafio-mobile/Modules/Foundation/Components/DataSource/SeriesCollectionViewDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "updateSeries(series:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "globoplay-desafio-mobile/Modules/Foundation/Components/DataSource/MoviesCollectionViewDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "updateMovies(movies:)"
             landmarkType = "7">
          </BreakpointContent>

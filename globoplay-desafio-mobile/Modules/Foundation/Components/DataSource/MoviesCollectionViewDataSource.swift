@@ -26,16 +26,12 @@ class MoviesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let url = "https://image.tmdb.org/t/p/w500" + (movies?.results[indexPath.item].posterPath ?? String())
         
         if let imageUrl = URL(string: url) {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: imageUrl)
-                DispatchQueue.main.async {
-                    cell.genericImageView.image = data != nil ? UIImage(data: data!) : UIImage(named: "noImage")
-                }
+            DispatchQueue.main.async {
+                cell.genericImageView.loadImage(from: imageUrl)
             }
+            
         }
         return cell
-
-        
     }
     
     func updateMovies(movies: MoviesEntity) {
