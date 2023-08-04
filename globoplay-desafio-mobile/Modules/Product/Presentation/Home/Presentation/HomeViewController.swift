@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+// MARK: - Protocol
+
+protocol HomeViewProtocol: AnyObject {
+    func showLoading()
+    func hideLoading()
+    func showError(message: String)
+    func reloadCollectionView()
+}
+
 class HomeViewController: UIViewController {
     
     // MARK: - UI Components
@@ -16,24 +25,43 @@ class HomeViewController: UIViewController {
     private let seriesLabel = LabelComponent()
     private let logoImageView = ImageViewComponent()
     
-    private var moviesCollectionView: CollectionViewComponent!
-    private var seriesCollectionView: CollectionViewComponent!
+    var errorComponent: ErrorComponent?
+    var moviesCollectionView: CollectionViewComponent?
+    var seriesCollectionView: CollectionViewComponent?
+    var viewModel: HomeViewModelProtocol?
+    var loaderComponent: LoaderComponent?
+    
+    private var moviesDataSource: MoviesCollectionViewDataSource?
+    private var seriesDataSource: SeriesCollectionViewDataSource?
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        createViewModel()
+        getData()
+    }
+    
+    private func createViewModel() {
+        let dependencies = HomeViewModelConfigurator.Dependencies(view: self)
+        viewModel = HomeViewModelConfigurator.make(with: dependencies)
+    }
+    
+    private func getData() {
+        viewModel?.getData()
+    }
+    
+    // MARK: - UI Setup Methods
+    
+    private func setupViews() {
         setupLogoImageView()
         setupMoviesLabel()
         setupMoviesCollectionView()
         setupSeriesLabel()
         setupSeriesCollectionView()
-        reloadData()
     }
-    
-    // MARK: - UI Setup Methods
-    
+            
     private func setupLogoImageView() {
         logoImageView.image = UIImage(named: "Logo")
         logoImageView.contentMode = .scaleAspectFit
@@ -71,7 +99,7 @@ class HomeViewController: UIViewController {
         view.addSubview(seriesLabel)
         
         NSLayoutConstraint.activate([
-            seriesLabel.topAnchor.constraint(equalTo: moviesCollectionView.bottomAnchor, constant: 20),
+            seriesLabel.topAnchor.constraint(equalTo: moviesCollectionView!.bottomAnchor, constant: 20),
             seriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10)
         ])
     }
@@ -80,27 +108,85 @@ class HomeViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let frame = CGRect(x: 0, y: 150, width: view.bounds.width, height: 200)
         layout.scrollDirection = .horizontal
-        moviesCollectionView = CollectionViewComponent(frame: frame, collectionViewLayout: layout, cellClass: GenericCell.self, reuseIdentifier: "GenericCell")
-        moviesCollectionView.itemCount = 4
-        moviesCollectionView.register(GenericCell.self, forCellWithReuseIdentifier: "MoviesCell")
-        view.addSubview(moviesCollectionView)
+        let moviesDataSource = MoviesCollectionViewDataSource(moviesEntity: viewModel?.getMoviesData())
+        viewModel?.setMoviesDataSource(moviesDataSource: moviesDataSource)
+        
+        moviesCollectionView = CollectionViewComponent(frame: frame, collectionViewLayout: layout, dataSource: moviesDataSource)
+        moviesCollectionView?.componentDelegate = self 
+        view.addSubview(moviesCollectionView!)
+        moviesCollectionView?.registerCell(GenericCell.self, forCellWithReuseIdentifier: "GenericCell")
     }
     
     private func setupSeriesCollectionView() {
         let layout = UICollectionViewFlowLayout()
         let frame = CGRect(x: 0, y: 400, width: view.bounds.width, height: 200)
         layout.scrollDirection = .horizontal
-        seriesCollectionView = CollectionViewComponent(frame: frame, collectionViewLayout: layout, cellClass: GenericCell.self, reuseIdentifier: "GenericCell")
-        seriesCollectionView.itemCount = 2
-        seriesCollectionView.register(GenericCell.self, forCellWithReuseIdentifier: "SeriesCell")
-        view.addSubview(seriesCollectionView)
-    }
-    
-    // MARK: - Data Reload
-    
-    private func reloadData() {
-        moviesCollectionView.reloadData()
-        seriesCollectionView.reloadData()
+        let seriesDataSource = SeriesCollectionViewDataSource(seriesEntity: viewModel?.getSeriesData())
+        viewModel?.setSeriesDataSource(seriesDataSource: seriesDataSource)
+        
+        seriesCollectionView = CollectionViewComponent(frame: frame, collectionViewLayout: layout, dataSource: seriesDataSource)
+        seriesCollectionView?.componentDelegate = self // Set the delegate
+        view.addSubview(seriesCollectionView!)
+        seriesCollectionView?.registerCell(GenericCell.self, forCellWithReuseIdentifier: "GenericCell")
     }
 }
 
+extension HomeViewController: HomeViewProtocol {
+
+    // MARK: - HomeViewProtocol
+    
+    func showLoading() {
+        loaderComponent?.startLoading()
+    }
+
+    func hideLoading() {
+        loaderComponent?.stopLoading()
+    }
+
+    func showError(message: String) {
+        errorComponent = ErrorComponent(message: message)
+        errorComponent?.delegate = self
+        view.addSubview(errorComponent ?? UIView())
+        configureErrorComponentConstraints()
+    }
+    
+    private func configureErrorComponentConstraints() {
+        errorComponent?.translatesAutoresizingMaskIntoConstraints = false
+        errorComponent?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        errorComponent?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        errorComponent?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        errorComponent?.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    private func hideErrorComponent() {
+        errorComponent?.removeFromSuperview()
+        errorComponent = nil
+    }
+    
+    func reloadCollectionView() {
+        setupViews()
+        moviesCollectionView?.reloadData()
+        seriesCollectionView?.reloadData()
+    }
+}
+
+extension HomeViewController: ErrorComponentDelegate {
+    
+    // MARK: - ErrorComponentDelegate
+    
+    func didTapRefresh() {
+        hideErrorComponent()
+    }
+}
+
+// MARK: - CollectionViewComponentDelegate
+
+extension HomeViewController: CollectionViewComponentDelegate {
+    func sizeForItemAt(indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.bounds.width/3, height: self.view.bounds.width/2.1)
+    }
+    
+    func didSelectItem(at indexPath: IndexPath) {
+        
+    }
+}

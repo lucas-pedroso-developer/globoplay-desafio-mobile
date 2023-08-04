@@ -30,14 +30,13 @@ public final class HttpService: HttpGetClient {
     ///   - url: The URL to which the GET request will be made.
     ///   - completion: A closure that is called once the request is complete. It returns a `Result` object containing either the retrieved data or an `HttpError` in case of failure.
     public func get(url: URL?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
-        let headers: [String: String] = ["Authorization": APIRoute.apiKey]
+        
         guard let urlUnwrapped = url else {
             completion(.failure(.invalidURL))
             return
         }
         
         var request = URLRequest(url: urlUnwrapped)
-        request.allHTTPHeaderFields = headers
         request.httpMethod = "GET"
         
         session.dataTask(with: request) { data, response, error in

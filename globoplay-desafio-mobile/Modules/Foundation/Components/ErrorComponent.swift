@@ -47,7 +47,7 @@ class ErrorComponent: UIView, ErrorComponentDelegate {
         super.init(frame: .zero)
         setupViews()
         setupConstraints()
-        setDescription() // Adicione essa linha para configurar o texto da descriptionLabel
+        setDescription()
         refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
     }
     

@@ -23,18 +23,18 @@ struct SeriesData: Codable {
     let voteCount: Int
     
     enum CodingKeys: String, CodingKey {
-        case backdropPath
-        case firstAirDate
-        case genreIds
+        case backdropPath = "backdrop_path"
+        case firstAirDate = "first_air_date"
+        case genreIds = "genre_ids"
         case id
         case name
-        case originCountry
-        case originalLanguage
-        case originalName
+        case originCountry = "origin_country"
+        case originalLanguage = "original_language"
+        case originalName = "original_name"
         case overview
         case popularity
-        case posterPath
-        case voteAverage
-        case voteCount
+        case posterPath = "poster_path"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
     }
 }

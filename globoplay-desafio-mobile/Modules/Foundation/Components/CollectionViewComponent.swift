@@ -7,65 +7,87 @@
 
 import UIKit
 
-// MARK: - CollectionViewComponent
+protocol CollectionViewComponentDelegate: AnyObject {
+    func didSelectItem(at indexPath: IndexPath)
+    func sizeForItemAt(indexPath: IndexPath) -> CGSize
+}
 
-class CollectionViewComponent: UICollectionView {
-
-    var imageUrl: URL?
-    var itemCount: Int = 0
+class CollectionViewComponent: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout, cellClass: AnyClass, reuseIdentifier: String) {
-        super.init(frame: frame, collectionViewLayout: layout)
-        configure(cellClass: cellClass, reuseIdentifier: reuseIdentifier)
+    // MARK: - Properties
+    
+    weak var componentDelegate: CollectionViewComponentDelegate?
+    
+    var collectionView: UICollectionView!
+    var dataSource: UICollectionViewDataSource?
+    
+    // MARK: - Initialization
+    
+    init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout, dataSource: UICollectionViewDataSource) {
+        super.init(frame: frame)
+        self.dataSource = dataSource
+        setupCollectionView(layout: layout)
     }
-
+    
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
-
-    private func configure(cellClass: AnyClass, reuseIdentifier: String) {
-        dataSource = self
-        delegate = self
-        register(cellClass, forCellWithReuseIdentifier: reuseIdentifier)
+    
+    // MARK: - Private Methods
+    
+    private func setupCollectionView(layout: UICollectionViewLayout) {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = dataSource
+        addSubview(collectionView)
+        configureCollectionViewConstraints()
     }
-}
-
-// MARK: - UICollectionViewDataSource
-
-extension CollectionViewComponent: UICollectionViewDataSource {
+    
+    private func configureCollectionViewConstraints() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+    
+    // MARK: - Public Methods
+    
+    func reloadData() {
+        collectionView.reloadData()
+    }
+    
+    func registerCell<T: UICollectionViewCell>(_ cellClass: T.Type, forCellWithReuseIdentifier identifier: String) {
+        collectionView.register(cellClass, forCellWithReuseIdentifier: identifier)
+    }
+    
+    // MARK: - UICollectionViewDataSource Methods
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount
+        return dataSource?.collectionView(collectionView, numberOfItemsInSection: section) ?? 0
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenericCell", for: indexPath) as! GenericCell
-           cell.tintColor = UIColor.red
-           cell.backgroundColor = UIColor.white
-           if let imageUrl = imageUrl {
-           
-           }
-           return cell
-   }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension CollectionViewComponent: UICollectionViewDelegateFlowLayout {
+        return dataSource?.collectionView(collectionView, cellForItemAt: indexPath) ?? UICollectionViewCell()
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout Methods
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth: CGFloat = 120
-        let cellHeight: CGFloat = 200
-        return CGSize(width: cellWidth, height: cellHeight)
+        return componentDelegate?.sizeForItemAt(indexPath: indexPath) ?? CGSize(width: 50, height: 50)
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+    
+    // MARK: - UICollectionViewDelegate Methods
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        componentDelegate?.didSelectItem(at: indexPath)
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    
+    // MARK: - Custom Methods
+    
+    func selectItem(at indexPath: IndexPath) {
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+        componentDelegate?.didSelectItem(at: indexPath)
     }
 }

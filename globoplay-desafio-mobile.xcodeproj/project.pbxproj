@@ -9,11 +9,36 @@
 /* Begin PBXBuildFile section */
 		6A57026D2A729AD6001B67FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A57026C2A729AD6001B67FC /* AppDelegate.swift */; };
 		6A57026F2A729AD6001B67FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A57026E2A729AD6001B67FC /* SceneDelegate.swift */; };
-		6A5702712A729AD6001B67FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702702A729AD6001B67FC /* ViewController.swift */; };
 		6A5702772A729AD7001B67FC /* globoplay_desafio_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702752A729AD7001B67FC /* globoplay_desafio_mobile.xcdatamodeld */; };
 		6A5702792A729AD8001B67FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A5702782A729AD8001B67FC /* Assets.xcassets */; };
 		6A5702872A729AD9001B67FC /* globoplay_desafio_mobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702862A729AD9001B67FC /* globoplay_desafio_mobileTests.swift */; };
 		6A5702922A729AD9001B67FC /* globoplay_desafio_mobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702912A729AD9001B67FC /* globoplay_desafio_mobileUITests.swift */; };
+		6A5702B32A729FC8001B67FC /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702B22A729FC7001B67FC /* LaunchscreenViewController.swift */; };
+		6A5702B52A729FE1001B67FC /* LaunchscreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702B42A729FE1001B67FC /* LaunchscreenCoordinator.swift */; };
+		6A5702B92A72A06C001B67FC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702B82A72A06C001B67FC /* Coordinator.swift */; };
+		6A5702C22A72AB60001B67FC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702C12A72AB60001B67FC /* HomeViewController.swift */; };
+		6A5702C42A72AB71001B67FC /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702C32A72AB71001B67FC /* HomeCoordinator.swift */; };
+		6A5702CD2A72AF83001B67FC /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702CC2A72AF83001B67FC /* MyListViewController.swift */; };
+		6A5702D92A73E726001B67FC /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702D82A73E726001B67FC /* GenericCell.swift */; };
+		6A5702E22A741DDF001B67FC /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702E12A741DDF001B67FC /* LabelComponent.swift */; };
+		6A5702E42A741E01001B67FC /* ImageViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702E32A741E01001B67FC /* ImageViewComponent.swift */; };
+		6A5702E62A741E2F001B67FC /* CollectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702E52A741E2F001B67FC /* CollectionViewComponent.swift */; };
+		6A5703002A742FD9001B67FC /* MoviesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5702FF2A742FD9001B67FC /* MoviesEntity.swift */; };
+		6A5703022A743030001B67FC /* MoviesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703012A743030001B67FC /* MoviesData.swift */; };
+		6A5703042A7431E8001B67FC /* SeriesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703032A7431E8001B67FC /* SeriesEntity.swift */; };
+		6A5703062A743249001B67FC /* SeriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703052A743249001B67FC /* SeriesData.swift */; };
+		6A57030F2A7550E5001B67FC /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A57030E2A7550E5001B67FC /* HttpService.swift */; };
+		6A5703112A75520E001B67FC /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703102A75520E001B67FC /* APIRoute.swift */; };
+		6A5703132A7552B7001B67FC /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703122A7552B7001B67FC /* HttpError.swift */; };
+		6A5703192A755441001B67FC /* LoaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703182A755441001B67FC /* LoaderComponent.swift */; };
+		6A57031E2A75548F001B67FC /* ErrorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A57031D2A75548F001B67FC /* ErrorComponent.swift */; };
+		6A5703232A75553A001B67FC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703222A75553A001B67FC /* HomeViewModel.swift */; };
+		6A5703272A755C08001B67FC /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703262A755C08001B67FC /* HomeUseCase.swift */; };
+		6A5703292A755C9E001B67FC /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703282A755C9E001B67FC /* HomeRepository.swift */; };
+		6A57034C2A756261001B67FC /* HomeViewModelConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A57034B2A756261001B67FC /* HomeViewModelConfigurator.swift */; };
+		6A5703582A756329001B67FC /* FeatureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5703572A756329001B67FC /* FeatureFactory.swift */; };
+		6A81A7B62A7D247800230D2D /* MoviesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81A7B52A7D247800230D2D /* MoviesCollectionViewDataSource.swift */; };
+		6A81A7BB2A7D248700230D2D /* SeriesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81A7BA2A7D248700230D2D /* SeriesCollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +62,6 @@
 		6A5702692A729AD6001B67FC /* globoplay-desafio-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "globoplay-desafio-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A57026C2A729AD6001B67FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A57026E2A729AD6001B67FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6A5702702A729AD6001B67FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6A5702762A729AD7001B67FC /* globoplay_desafio_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = globoplay_desafio_mobile.xcdatamodel; sourceTree = "<group>"; };
 		6A5702782A729AD8001B67FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A57027D2A729AD8001B67FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +71,32 @@
 		6A57028D2A729AD9001B67FC /* globoplay-desafio-mobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "globoplay-desafio-mobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5702912A729AD9001B67FC /* globoplay_desafio_mobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globoplay_desafio_mobileUITests.swift; sourceTree = "<group>"; };
 		6A5702932A729AD9001B67FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A5702B22A729FC7001B67FC /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenViewController.swift; sourceTree = "<group>"; };
+		6A5702B42A729FE1001B67FC /* LaunchscreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenCoordinator.swift; sourceTree = "<group>"; };
+		6A5702B82A72A06C001B67FC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		6A5702C12A72AB60001B67FC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6A5702C32A72AB71001B67FC /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		6A5702CC2A72AF83001B67FC /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		6A5702D82A73E726001B67FC /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
+		6A5702E12A741DDF001B67FC /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
+		6A5702E32A741E01001B67FC /* ImageViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewComponent.swift; sourceTree = "<group>"; };
+		6A5702E52A741E2F001B67FC /* CollectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewComponent.swift; sourceTree = "<group>"; };
+		6A5702FF2A742FD9001B67FC /* MoviesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesEntity.swift; sourceTree = "<group>"; };
+		6A5703012A743030001B67FC /* MoviesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesData.swift; sourceTree = "<group>"; };
+		6A5703032A7431E8001B67FC /* SeriesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEntity.swift; sourceTree = "<group>"; };
+		6A5703052A743249001B67FC /* SeriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesData.swift; sourceTree = "<group>"; };
+		6A57030E2A7550E5001B67FC /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		6A5703102A75520E001B67FC /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
+		6A5703122A7552B7001B67FC /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		6A5703182A755441001B67FC /* LoaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderComponent.swift; sourceTree = "<group>"; };
+		6A57031D2A75548F001B67FC /* ErrorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorComponent.swift; sourceTree = "<group>"; };
+		6A5703222A75553A001B67FC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6A5703262A755C08001B67FC /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		6A5703282A755C9E001B67FC /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		6A57034B2A756261001B67FC /* HomeViewModelConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelConfigurator.swift; sourceTree = "<group>"; };
+		6A5703572A756329001B67FC /* FeatureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFactory.swift; sourceTree = "<group>"; };
+		6A81A7B52A7D247800230D2D /* MoviesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		6A81A7BA2A7D248700230D2D /* SeriesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +147,9 @@
 		6A57026B2A729AD6001B67FC /* globoplay-desafio-mobile */ = {
 			isa = PBXGroup;
 			children = (
-				6A57026C2A729AD6001B67FC /* AppDelegate.swift */,
-				6A57026E2A729AD6001B67FC /* SceneDelegate.swift */,
-				6A5702702A729AD6001B67FC /* ViewController.swift */,
+				6A5702AD2A729F34001B67FC /* Resources */,
+				6A5702AC2A729F2B001B67FC /* Modules */,
+				6A5702AB2A729F12001B67FC /* AppDelegate */,
 				6A5702782A729AD8001B67FC /* Assets.xcassets */,
 				6A57027D2A729AD8001B67FC /* Info.plist */,
 				6A5702752A729AD7001B67FC /* globoplay_desafio_mobile.xcdatamodeld */,
@@ -123,6 +173,215 @@
 				6A5702932A729AD9001B67FC /* Info.plist */,
 			);
 			path = "globoplay-desafio-mobileUITests";
+			sourceTree = "<group>";
+		};
+		6A5702AB2A729F12001B67FC /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6A57026C2A729AD6001B67FC /* AppDelegate.swift */,
+				6A57026E2A729AD6001B67FC /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6A5702AC2A729F2B001B67FC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702AF2A729F81001B67FC /* Foundation */,
+				6A5702AE2A729F7B001B67FC /* Product */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6A5702AD2A729F34001B67FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A5702AE2A729F7B001B67FC /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702B02A729F9D001B67FC /* Presentation */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		6A5702AF2A729F81001B67FC /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6A5703562A75631A001B67FC /* Factory */,
+				6A57030D2A7550A3001B67FC /* Network */,
+				6A5702E02A741DC4001B67FC /* Components */,
+				6A5702B72A72A05E001B67FC /* Coordinator */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		6A5702B02A729F9D001B67FC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702C82A72AF54001B67FC /* MyList */,
+				6A5702BD2A72AA5A001B67FC /* Home */,
+				6A5702B12A729FA6001B67FC /* Launchscreen */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6A5702B12A729FA6001B67FC /* Launchscreen */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702B22A729FC7001B67FC /* LaunchscreenViewController.swift */,
+				6A5702B42A729FE1001B67FC /* LaunchscreenCoordinator.swift */,
+			);
+			path = Launchscreen;
+			sourceTree = "<group>";
+		};
+		6A5702B72A72A05E001B67FC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702B82A72A06C001B67FC /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6A5702BD2A72AA5A001B67FC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702C02A72AB1F001B67FC /* Data */,
+				6A5702BF2A72AB19001B67FC /* Domain */,
+				6A5702BE2A72AB11001B67FC /* Presentation */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6A5702BE2A72AB11001B67FC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702C12A72AB60001B67FC /* HomeViewController.swift */,
+				6A5702C32A72AB71001B67FC /* HomeCoordinator.swift */,
+				6A5703222A75553A001B67FC /* HomeViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6A5702BF2A72AB19001B67FC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6A5703252A755BFD001B67FC /* UseCase */,
+				6A5703242A755BF0001B67FC /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6A5702C02A72AB1F001B67FC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6A5703282A755C9E001B67FC /* HomeRepository.swift */,
+				6A57034B2A756261001B67FC /* HomeViewModelConfigurator.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6A5702C82A72AF54001B67FC /* MyList */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702C92A72AF5B001B67FC /* Data */,
+				6A5702CA2A72AF61001B67FC /* Domain */,
+				6A5702CB2A72AF6A001B67FC /* Presentation */,
+			);
+			path = MyList;
+			sourceTree = "<group>";
+		};
+		6A5702C92A72AF5B001B67FC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6A5702CA2A72AF61001B67FC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6A5702CB2A72AF6A001B67FC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702CC2A72AF83001B67FC /* MyListViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6A5702E02A741DC4001B67FC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6A81A7B42A7D246400230D2D /* DataSource */,
+				6A5703172A755396001B67FC /* Cells */,
+				6A5702E12A741DDF001B67FC /* LabelComponent.swift */,
+				6A5702E32A741E01001B67FC /* ImageViewComponent.swift */,
+				6A5702E52A741E2F001B67FC /* CollectionViewComponent.swift */,
+				6A5703182A755441001B67FC /* LoaderComponent.swift */,
+				6A57031D2A75548F001B67FC /* ErrorComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6A57030D2A7550A3001B67FC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6A57030E2A7550E5001B67FC /* HttpService.swift */,
+				6A5703102A75520E001B67FC /* APIRoute.swift */,
+				6A5703122A7552B7001B67FC /* HttpError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6A5703172A755396001B67FC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702D82A73E726001B67FC /* GenericCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6A5703242A755BF0001B67FC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6A5702FF2A742FD9001B67FC /* MoviesEntity.swift */,
+				6A5703012A743030001B67FC /* MoviesData.swift */,
+				6A5703032A7431E8001B67FC /* SeriesEntity.swift */,
+				6A5703052A743249001B67FC /* SeriesData.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6A5703252A755BFD001B67FC /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				6A5703262A755C08001B67FC /* HomeUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		6A5703562A75631A001B67FC /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				6A5703572A756329001B67FC /* FeatureFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		6A81A7B42A7D246400230D2D /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6A81A7B52A7D247800230D2D /* MoviesCollectionViewDataSource.swift */,
+				6A81A7BA2A7D248700230D2D /* SeriesCollectionViewDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,10 +512,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A5702712A729AD6001B67FC /* ViewController.swift in Sources */,
+				6A5702E62A741E2F001B67FC /* CollectionViewComponent.swift in Sources */,
+				6A5702B52A729FE1001B67FC /* LaunchscreenCoordinator.swift in Sources */,
+				6A57031E2A75548F001B67FC /* ErrorComponent.swift in Sources */,
+				6A5702CD2A72AF83001B67FC /* MyListViewController.swift in Sources */,
+				6A5702C42A72AB71001B67FC /* HomeCoordinator.swift in Sources */,
+				6A5703232A75553A001B67FC /* HomeViewModel.swift in Sources */,
 				6A57026D2A729AD6001B67FC /* AppDelegate.swift in Sources */,
+				6A5703112A75520E001B67FC /* APIRoute.swift in Sources */,
+				6A57030F2A7550E5001B67FC /* HttpService.swift in Sources */,
+				6A5703042A7431E8001B67FC /* SeriesEntity.swift in Sources */,
+				6A81A7BB2A7D248700230D2D /* SeriesCollectionViewDataSource.swift in Sources */,
+				6A5703582A756329001B67FC /* FeatureFactory.swift in Sources */,
+				6A5702E22A741DDF001B67FC /* LabelComponent.swift in Sources */,
+				6A5702C22A72AB60001B67FC /* HomeViewController.swift in Sources */,
+				6A5702B32A729FC8001B67FC /* LaunchscreenViewController.swift in Sources */,
+				6A5703272A755C08001B67FC /* HomeUseCase.swift in Sources */,
 				6A57026F2A729AD6001B67FC /* SceneDelegate.swift in Sources */,
+				6A5703292A755C9E001B67FC /* HomeRepository.swift in Sources */,
+				6A5703132A7552B7001B67FC /* HttpError.swift in Sources */,
+				6A5702D92A73E726001B67FC /* GenericCell.swift in Sources */,
+				6A57034C2A756261001B67FC /* HomeViewModelConfigurator.swift in Sources */,
+				6A81A7B62A7D247800230D2D /* MoviesCollectionViewDataSource.swift in Sources */,
+				6A5703062A743249001B67FC /* SeriesData.swift in Sources */,
+				6A5702E42A741E01001B67FC /* ImageViewComponent.swift in Sources */,
 				6A5702772A729AD7001B67FC /* globoplay_desafio_mobile.xcdatamodeld in Sources */,
+				6A5702B92A72A06C001B67FC /* Coordinator.swift in Sources */,
+				6A5703192A755441001B67FC /* LoaderComponent.swift in Sources */,
+				6A5703022A743030001B67FC /* MoviesData.swift in Sources */,
+				6A5703002A742FD9001B67FC /* MoviesEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
