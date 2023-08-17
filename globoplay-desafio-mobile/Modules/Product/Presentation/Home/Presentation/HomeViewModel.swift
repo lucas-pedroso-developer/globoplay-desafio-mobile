@@ -18,6 +18,8 @@ protocol HomeViewModelProtocol {
     func setSeriesData(seriesEntity: SeriesEntity)
     func setMoviesDataSource(moviesDataSource: MoviesCollectionViewDataSource)
     func setSeriesDataSource(seriesDataSource: SeriesCollectionViewDataSource)
+    func getSelectedMovie(indexPathItem: Int) -> MoviesData?
+    func getSelectedSerie(indexPathItem: Int) -> SeriesData?
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -142,4 +144,11 @@ extension HomeViewModel {
         self.seriesDataSource = seriesDataSource
     }
     
+    func getSelectedMovie(indexPathItem: Int) -> MoviesData? {
+        return self.moviesEntity?.results[indexPathItem] ?? nil
+    }
+    
+    func getSelectedSerie(indexPathItem: Int) -> SeriesData? {
+        return self.seriesEntity?.results[indexPathItem] ?? nil
+    }
 }

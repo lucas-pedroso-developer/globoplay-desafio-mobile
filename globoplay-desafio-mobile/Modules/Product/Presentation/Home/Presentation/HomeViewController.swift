@@ -187,6 +187,13 @@ extension HomeViewController: CollectionViewComponentDelegate {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        
+        if let selectedMovie = viewModel?.getSelectedMovie(indexPathItem: indexPath.item) {
+            let detailsCoordinator = DetailsCoordinator(viewController: self)
+            detailsCoordinator.setMovieData(movie: selectedMovie)
+            detailsCoordinator.start()
+        } else {
+            print("No selected movie found for indexPath: \(indexPath)")
+            //TODO: tratar erro
+        }
     }
 }

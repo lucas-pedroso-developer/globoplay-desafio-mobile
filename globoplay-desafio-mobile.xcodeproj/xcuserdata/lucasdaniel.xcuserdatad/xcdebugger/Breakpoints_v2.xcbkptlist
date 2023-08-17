@@ -318,8 +318,8 @@
             filePath = "globoplay-desafio-mobile/Modules/Product/Presentation/Home/Presentation/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "globoplay-desafio-mobile/Modules/Product/Presentation/Home/Presentation/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -408,7 +408,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C5BD1A8C-9EDC-4D45-9690-3D8C93ABE596"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "globoplay-desafio-mobile/Modules/Foundation/Components/DataSource/SeriesCollectionViewDataSource.swift"
